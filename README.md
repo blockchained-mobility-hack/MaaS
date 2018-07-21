@@ -16,6 +16,10 @@ We want to enable companies to enter the mobility market. Our idea is to develop
 company and customer side.
 
 ## TECHNOLOGY
+We use the following technologies in pursuit of mobility happines:
+
+ - Apache        - Java        - IOTA
+ - Springboot    - Node JS
 
 ## ARCHITECTURE
 
