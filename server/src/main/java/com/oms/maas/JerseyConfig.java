@@ -19,6 +19,6 @@ public class JerseyConfig extends ResourceConfig {
     }
 
     private void registerEndpoints() {
-        register(TestApi.class);
+        ResourceConfig resourceConfig = register(TestApi.class);
     }
 }

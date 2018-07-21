@@ -9,6 +9,8 @@ import javax.ws.rs.core.Response;
 import javax.inject.Inject;
 
 import io.swagger.annotations.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.LinkedHashMap;
 
@@ -22,17 +24,16 @@ import javax.validation.constraints.*;
 {{#hasConsumes}}@Consumes({ {{#consumes}}"{{{mediaType}}}"{{#hasMore}}, {{/hasMore}}{{/consumes}} }){{/hasConsumes}}
 {{#hasProduces}}@Produces({ {{#produces}}"{{{mediaType}}}"{{#hasMore}}, {{/hasMore}}{{/produces}} }){{/hasProduces}}
 {{>generatedAnnotation}}
-
+@Controller
+@RestController
 public class {{classname}}  {
 
 {{#operations}}
 {{#operation}}
     {{#queryParams}}{{#datatypeWithEnum}}
 {{>enumClass}}{{/datatypeWithEnum}}{{/queryParams}}
-
-
     @{{httpMethod}}
-    {{#subresourceOperation}}@Path("{{{path}}}"){{/subresourceOperation}}
+    {{#subresourceOperation}}@Path("{{{baseName}}}" + "{{{path}}}"){{/subresourceOperation}}
     {{#hasConsumes}}@Consumes({ {{#consumes}}"{{mediaType}}"{{#hasMore}}, {{/hasMore}}{{/consumes}} }){{/hasConsumes}}
     {{#hasProduces}}@Produces({ {{#produces}}"{{mediaType}}"{{#hasMore}}, {{/hasMore}}{{/produces}} }){{/hasProduces}}
     @ApiOperation(value = "{{{summary}}}", notes = "{{{notes}}}", response = {{{returnType}}}.class{{#returnContainer}}, responseContainer = "{{{returnContainer}}}"{{/returnContainer}}{{#hasAuthMethods}}, authorizations = {

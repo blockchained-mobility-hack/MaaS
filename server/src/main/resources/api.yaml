@@ -17,7 +17,7 @@ consumes:
   - application/json
 
 paths:
-  /test/helloOMS:
+  /test/hellooms:
     get:
       summary: Test case
       description: description
