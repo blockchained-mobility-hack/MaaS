@@ -31,7 +31,7 @@ We use the following technologies in pursuit of mobility happines:
 ## TOOLS
 
  - IntelliJ
- -b NEOVIM
+ - NEOVIM
 
 ## ARCHITECTURE
 
