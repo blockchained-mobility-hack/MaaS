@@ -1,6 +1,7 @@
 package com.oms.maas;
 
-import com.oms.maas.api.TestApi;
+import com.oms.maas.api.OfferApi;
+import com.oms.maas.rest.OfferResource;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,6 +20,6 @@ public class JerseyConfig extends ResourceConfig {
     }
 
     private void registerEndpoints() {
-        ResourceConfig resourceConfig = register(TestApi.class);
+        ResourceConfig resourceConfig = register(OfferResource.class);
     }
 }

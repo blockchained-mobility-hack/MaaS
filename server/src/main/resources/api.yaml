@@ -17,17 +17,39 @@ consumes:
   - application/json
 
 paths:
-  /test/hellooms:
+  /offer/cheap:
     get:
       summary: Test case
       description: description
       tags:
-        - just for testing
+        - Offers
+      consumes:
+        - text/plain
+      responses:
+        200:
+          description: bam
+        400:
+          description: 400
+        500:
+          description: 500
+  /offer/fast:
+    get:
+      summary: Test case
+      description: description
+      tags:
+        - Offers
+      consumes:
+        - text/plain
+  /offer/{id}:
+    get:
+      summary: Test case
+      description: description
+      tags:
+        - Offers
       consumes:
         - text/plain
       parameters:
-        - name: name
-          in: query
-          required: true
-          description: putin your name
+        - name: id
+          in: path
+          description:
           type: string
