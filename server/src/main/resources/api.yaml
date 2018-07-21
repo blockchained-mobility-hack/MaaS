@@ -1,0 +1,33 @@
+swagger: '2.0'
+info:
+  title: OMS API
+  description: |
+    hello
+  version: '1.0.0'
+
+schemes:
+  - http
+  - https
+
+# will be prefixed to all paths
+basePath: /api
+produces:
+  - application/json
+consumes:
+  - application/json
+
+paths:
+  /test/helloOMS:
+    get:
+      summary: Test case
+      description: description
+      tags:
+        - just for testing
+      consumes:
+        - text/plain
+      parameters:
+        - name: name
+          in: query
+          required: true
+          description: putin your name
+          type: string
