@@ -1,0 +1,35 @@
+    public enum {{#isContainer}}{{enumName}}{{/isContainer}}{{^isContainer}}{{datatypeWithEnum}}{{/isContainer}}_{{nickname}} {
+
+        {{#allowableValues}}
+        {{#enumVars}}{{name}}({{#isContainer}}{{baseType}}{{/isContainer}}{{^isContainer}}{{#datatype}}{{datatype}}{{/datatype}}{{^datatype}}{{dataType}}{{/datatype}}{{/isContainer}}.valueOf({{{value}}})){{^-last}}, {{/-last}}{{#-last}};{{/-last}}{{/enumVars}}
+        {{/allowableValues}}
+
+
+        private {{#isContainer}}{{baseType}}{{/isContainer}}{{^isContainer}}{{#datatype}}{{datatype}}{{/datatype}}{{^datatype}}{{dataType}}{{/datatype}}{{/isContainer}} value;
+
+        {{#isContainer}}{{enumName}}{{/isContainer}}{{^isContainer}}{{datatypeWithEnum}}{{/isContainer}}_{{nickname}} ({{#isContainer}}{{baseType}}{{/isContainer}}{{^isContainer}}{{#datatype}}{{datatype}}{{/datatype}}{{^datatype}}{{dataType}}{{/datatype}}{{/isContainer}} v) {
+            value = v;
+        }
+
+        public String value() {
+            return toString();
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static {{#isContainer}}{{enumName}}{{/isContainer}}{{^isContainer}}{{datatypeWithEnum}}{{/isContainer}}_{{nickname}} fromValue(String v) {
+            for ({{#isContainer}}{{enumName}}{{/isContainer}}{{^isContainer}}{{datatypeWithEnum}}{{/isContainer}}_{{nickname}} b : {{#isContainer}}{{enumName}}{{/isContainer}}{{^isContainer}}{{datatypeWithEnum}}{{/isContainer}}_{{nickname}}.values()) {
+                if (String.valueOf(b.value).equals(v)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static {{#isContainer}}{{enumName}}{{/isContainer}}{{^isContainer}}{{datatypeWithEnum}}{{/isContainer}}_{{nickname}} fromString(String v) {
+            return fromValue(v);
+        }
+    }

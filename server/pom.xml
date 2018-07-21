@@ -34,11 +34,18 @@
     <dependencies>
 
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+        </dependency>
+
+
+        <dependency>
             <groupId>org.glassfish.web</groupId>
             <artifactId>el-impl</artifactId>
             <version>2.2</version>
             <scope>runtime</scope>
         </dependency>
+
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -58,6 +65,12 @@
         </dependency>
 
         <dependency>
+            <groupId>groupId</groupId>
+            <artifactId>generator</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-annotations</artifactId>
         </dependency>
@@ -70,6 +83,24 @@
         <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-parser</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-codegen</artifactId>
+            <version>${swagger-codegen.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>21.0</version>
+        </dependency>
+        <dependency><!-- Google Json -->
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.1</version>
         </dependency>
 
     </dependencies>
@@ -86,23 +117,62 @@
                 <version>1.0</version>
             </plugin>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>1.5.1.RELEASE</version>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
                 <executions>
                     <execution>
+                        <phase>initialize</phase>
                         <goals>
-                            <goal>repackage</goal>
+                            <goal>java</goal>
                         </goals>
                         <configuration>
-                            <mainClass>${start-class}</mainClass>
+                            <mainClass>com.oms.maas.Generator</mainClass>
                         </configuration>
                     </execution>
                 </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>groupId</groupId>
+                        <artifactId>generator</artifactId>
+                        <version>${project.version}</version>
+                        <scope>compile</scope>
+                    </dependency>
+                </dependencies>
                 <configuration>
                     <mainClass>${start-class}</mainClass>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-codegen-maven-plugin</artifactId>
+                <version>2.3.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.basedir}/src/main/resources/api.yaml</inputSpec>
+                            <language>com.oms.maas.MaaSRestGenerator</language>
+                            <configOptions>
+                                <apiPackage>com.oms.maas.api</apiPackage>
+                                <modelPackage>com.oms.maas.model</modelPackage>
+                            </configOptions>
+                        </configuration>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>groupId</groupId>
+                        <artifactId>generator</artifactId>
+                        <version>${project.version}</version>
+                        <scope>compile</scope>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
@@ -120,6 +190,14 @@
                         </configuration>
                     </execution>
                 </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>groupId</groupId>
+                        <artifactId>generator</artifactId>
+                        <version>${project.version}</version>
+                        <scope>compile</scope>
+                    </dependency>
+                </dependencies>
             </plugin>
             <plugin>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -198,10 +276,6 @@
                 </executions>
             </plugin>
             <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>3.0.1</version>
@@ -244,8 +318,12 @@
                     <include>swagger.json</include>
                 </includes>
             </resource>
+
             <resource>
                 <directory>${project.basedir}/src/main/resources</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
             </resource>
         </resources>
     </build>
