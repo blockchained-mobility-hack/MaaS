@@ -19,10 +19,19 @@ company and customer UI. Such way we hope more customer and mobility provider ho
 We use the following technologies in pursuit of mobility happines:
 
  - Apache        
- - Springboot    
  - Java
  - Node JS
- - IOTA
+ - IOTA JS SDK
+ 
+## LIBRARY
+
+ - SWAGGER
+ - Spring Boot
+ 
+## TOOLS
+
+ - IntelliJ
+ -b NEOVIM
 
 ## ARCHITECTURE
 
