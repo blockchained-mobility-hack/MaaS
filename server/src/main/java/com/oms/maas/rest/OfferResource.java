@@ -5,6 +5,7 @@ import org.apache.commons.io.IOUtils;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 @RestController
 public class OfferResource extends OfferApi {
@@ -90,5 +91,13 @@ public class OfferResource extends OfferApi {
         }
 
         return s;
+    }
+
+    @Override
+    public Response offerPostPost(String id, String productName, String provider, String description, String validFrom, String validTo, String locationStart, String locationEnd, String price, String currency, String co2emission, List<String> options) {
+        String iotaStuff = getInformationFromBeyond("js stuff"); //TODO ad js command
+
+        Response response = Response.ok().entity(iotaStuff).build();
+        return response;
     }
 }
