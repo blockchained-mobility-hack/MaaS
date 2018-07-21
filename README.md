@@ -28,3 +28,17 @@ We use the following technologies in pursuit of mobility happines:
 
 ## DATAFLOW
 
+## IOTA
+
+IOTA part provides 3 APIs
+
+1. publishing provider mobility offer to IOTA tangle net
+
+`
+node iota/apiPublish.js --payload='{"name": "fei", "test":"again1", "provider": "bmw"}'
+`
+
+2. get payable provider address for end user to conduct transaction
+3. authorize and confirm payment
+
+
