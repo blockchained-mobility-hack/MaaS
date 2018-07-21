@@ -18,8 +18,11 @@ company and customer side.
 ## TECHNOLOGY
 We use the following technologies in pursuit of mobility happines:
 
- - Apache        - Java        - IOTA
- - Springboot    - Node JS
+ - Apache        
+ - Springboot    
+ - Java
+ - Node JS
+ - IOTA
 
 ## ARCHITECTURE
 
