@@ -13,7 +13,7 @@ Our team consists of five passionated guy with different backgrounds.
  
 ## IDEA
 We want to enable companies to enter the mobility market. Our idea is to develop a clear & crisp REST API to ease implementation on 
-company and customer side.
+company and customer UI. Such way we hope more customer and mobility provider hook up in a distributed mobility ledger.
 
 ## TECHNOLOGY
 We use the following technologies in pursuit of mobility happines:
