@@ -29,6 +29,8 @@ const descriptionMap = {
 
 const imageSrcMap = {
     bmw: 'https://upload.wikimedia.org/wikipedia/commons/b/b9/DriveNow_logo.svg',
+    db:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Deutsche_Bahn_AG-Logo.svg/744px-Deutsche_Bahn_AG-Logo.svg.png',
 }
 
 class SimpleMediaCard extends React.Component {
@@ -38,8 +40,10 @@ class SimpleMediaCard extends React.Component {
     }
     componentWillMount = async () => {
         const { match: { params } } = this.props
-        const data = await fetch(`http://localhost:8080/offer/${params.type}`)
-        this.setState({ data: data, loading: false })
+        const data = await fetch(`http://localhost:8080/api/offer/${params.type}`).then(data => data.json())
+        console.log(data)
+
+        this.setState({ data: data, loading: true })
     }
     render() {
         const { classes, match: { params } } = this.props
