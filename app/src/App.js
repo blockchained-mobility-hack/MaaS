@@ -4,9 +4,12 @@ import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsPr
 import MomentUtils from 'material-ui-pickers/utils/moment-utils'
 import DatePicker from 'material-ui-pickers/DatePicker'
 import Location from './Location'
+import Button from '@material-ui/core/Button'
+
+import { Link } from 'react-router-dom'
 
 const AppContainer = styled.div`
-    text-aligned: 'center';
+    text-align: center;
 `
 const Header = styled.div`
     background-color: #222;
@@ -18,7 +21,7 @@ const Header = styled.div`
     justify-content: center;
 `
 const ContentContainer = styled.div`
-    padding: 10px;
+    padding: 50px 10px;
 `
 const H1 = styled.h1`
     font-size: 1.5em;
@@ -32,14 +35,24 @@ const ControlLabel = styled.p`
     width: 30%;
 `
 
+const ButtonGroup = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 50px;
+`
+
 class App extends Component {
     state = {
         selectedDate: new Date(),
         fromLocation: 'munich',
         destination: 'berlin',
     }
-    handleDateChange = () => {
-        alert('changed')
+    handleDateChange = date => {
+        this.setState({ selectedDate: date })
+    }
+    handleLocationChange = (field, value) => {
+        this.setState({ [field]: value })
     }
     render() {
         return (
@@ -57,7 +70,7 @@ class App extends Component {
                             <ControlLabel>Location: </ControlLabel>
                             <Location
                                 location={this.state.fromLocation}
-                                handleChange={e => console.log(e)}
+                                handleChange={ev => this.handleLocationChange('fromLocation', ev.target.value)}
                                 iden="start-location"
                             />
                         </ControlSection>
@@ -65,10 +78,23 @@ class App extends Component {
                             <ControlLabel>Destination: </ControlLabel>
                             <Location
                                 location={this.state.destination}
-                                handleChange={e => console.log(e)}
+                                handleChange={ev => this.handleLocationChange('destination', ev.target.value)}
                                 iden="end-location"
                             />
                         </ControlSection>
+                        <ButtonGroup>
+                            <Link to="/offer/cheapest">
+                                <Button style={{ width: '100%' }} size="large" color="primary" variant="contained">
+                                    Cheapest
+                                </Button>
+                            </Link>
+                            <p>Or</p>
+                            <Link to="/offer/fastest">
+                                <Button style={{ width: '100%' }} size="large" color="primary" variant="contained">
+                                    Fastest
+                                </Button>
+                            </Link>
+                        </ButtonGroup>
                     </ContentContainer>
                 </AppContainer>
             </MuiPickersUtilsProvider>
