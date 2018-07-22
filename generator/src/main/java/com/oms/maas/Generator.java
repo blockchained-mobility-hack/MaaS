@@ -12,6 +12,12 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
+/**
+ * will get called before server start to provide us the api.yaml as an json
+ * that is necessary, so we can access the API via GUI
+ *
+ * this is messi af but should kinda work out for now
+ */
 public class Generator {
 
     public static void main(final String[] args) {

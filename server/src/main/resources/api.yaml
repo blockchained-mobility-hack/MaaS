@@ -116,7 +116,12 @@ paths:
           in: query
           description:
           type: string
-          default: 5/10
+          default: '5-10'
+        - name: speed
+          in: query
+          description:
+          type: string
+          default: 100
         - name: options
           in: query
           description:
@@ -189,7 +194,7 @@ paths:
           in: query
           description:
           type: string
-          default: 5/10
+          default: '5-10'
         - name: speed
           in: query
           description:
@@ -201,18 +206,7 @@ paths:
           type: array
           items:
             type: string
-    get:
-      summary: Test case
-      description: description
-      tags:
-        - Companies
-      consumes:
-        - text/plain
-      parameters:
-        - name: dummy
-          in: query
-          description:
-          type: string
+
   /company/db:
     post:
       summary: Test case
@@ -276,7 +270,7 @@ paths:
           in: query
           description:
           type: string
-          default: 2/10
+          default: '2-10'
         - name: speed
           in: query
           description:
@@ -288,15 +282,3 @@ paths:
           type: array
           items:
             type: string
-    get:
-      summary: Test case
-      description: description
-      tags:
-        - Companies
-      consumes:
-        - text/plain
-      parameters:
-        - name: dummy
-          in: query
-          description:
-          type: string

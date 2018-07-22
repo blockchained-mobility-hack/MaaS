@@ -3,8 +3,12 @@ package com.oms.maas;
 import io.swagger.codegen.CodegenConfig;
 import io.swagger.codegen.CodegenType;
 import io.swagger.codegen.languages.JavaJAXRSSpecServerCodegen;
-import io.swagger.models.properties.Property;
 
+/**
+ * own RestGenerator for our Swagger yaml -> jaxrs transformation
+ * why we need that? to provide our own mustache template folder "RestGenerator"
+ *
+ */
 public class MaaSRestGenerator extends JavaJAXRSSpecServerCodegen implements CodegenConfig {
 
     // source folder where to write the files

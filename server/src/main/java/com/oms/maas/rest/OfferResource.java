@@ -156,6 +156,7 @@ public class OfferResource extends OfferApi {
 
         String s = "";
         try {
+            //function = function.replace("\"", "\\\"").replace("\'", "\\'");
             Process process = runtime.exec(function);
             int resultCode = process.waitFor();
 
@@ -173,22 +174,29 @@ public class OfferResource extends OfferApi {
     }
 
     @Override
-    public Response offerPostPost(String id, String productName, String provider, String description, String validFrom, String validTo, String locationStart, String locationEnd, String price, String currency, String co2emission, List<String> options) {
-        String iotaStuff = getInformationFromBeyond("node iota/apiPublish.js --payload='{\"id\": \"" + id +
-                "\", \"productName\": \"" + productName +
-                "\", \"provider\": \"" + provider +
-                "\", \"description\": \"" + description +
-                "\", \"validFrom\": \"" + validFrom +
-                "\", \"validTo\": \"" + validTo +
-                "\", \"locationStart\": \"" + locationStart +
-                "\", \"locationEnd\": \"" + locationEnd +
-                "\", \"price\": \"" + price +
-                "\", \"currency\": \"" + currency +
-                "\", \"co2emission\": \"" + co2emission +
-                "\", \"options\": \"" + options +
-                "\"}");
+    public Response offerPostPost(String id, String productName, String provider, String description, String validFrom, String validTo, String locationStart, String locationEnd, String price, String currency, String co2emission, String speed, List<String> options) {
 
-        Response response = Response.ok().entity(iotaStuff).build();
+        Map<String, String> map = new HashMap<>();
+        map.put("id", id);
+        map.put("productName", productName);
+        map.put("provider", provider);
+        map.put("description", description);
+        map.put("validFrom", validFrom);
+        map.put("validTo", validTo);
+        map.put("locationStart", locationStart);
+        map.put("locationEnd", locationEnd);
+        map.put("price", price);
+        map.put("currency", currency);
+        map.put("co2emission", co2emission);
+        map.put("speed", speed);
+        Gson gson = new Gson();
+        String json = gson.toJson(map);
+
+        String complete = "node iota/apiPublish.js --payload='" + json + "'";
+        //complete.replace(" ", "\\ ");
+        String done = getInformationFromBeyond(complete);
+
+        Response response = Response.ok().entity(done).build();
         return response;
     }
 
