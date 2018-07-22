@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import fetch from 'isomorphic-fetch'
+import confirm from './confirm'
 
 const styles = {
     card: {
@@ -37,11 +38,21 @@ class SimpleMediaCard extends React.Component {
     state = {
         loading: false,
         data: {},
+        orderStatus: null,
+        logs: [],
+    }
+    handleConfirmed = () => {
+        this.setState({ orderStatus: 'On Tangle' })
+    }
+    handleError = err => {
+        alert(err)
+    }
+    handleUpdate = msg => {
+        this.setState({ logs: this.state.logs.concat(msg) })
     }
     componentWillMount = async () => {
         const { match: { params } } = this.props
         const data = await fetch(`http://localhost:8080/api/offer/${params.type}`).then(data => data.json())
-        console.log(data)
 
         this.setState({ data: data, loading: true })
     }
@@ -89,10 +100,28 @@ class SimpleMediaCard extends React.Component {
                         justifyContent: 'center',
                     }}
                 >
-                    <Button style={{ width: '90%', marginTop: 50 }} size="large" color="primary" variant="contained">
-                        Confirm
+                    <Button
+                        style={{ width: '90%', marginTop: 50 }}
+                        size="large"
+                        color="primary"
+                        variant="contained"
+                        onClick={() =>
+                            setTimeout(
+                                confirm(this.state.data, this.handleConfirmed, this.handleError, this.handleUpdate),
+                            )
+                        }
+                    >
+                        {this.state.orderStatus || 'Confirm'}
                     </Button>
                 </div>
+                <ul
+                    style={{
+                        width: '100%',
+                        wordWrap: 'break-word',
+                    }}
+                >
+                    {this.state.logs.map((v, i) => <li key={i}>{v}</li>)}
+                </ul>
             </div>
         ) : (
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: 200 }}>
