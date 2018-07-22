@@ -1,54 +1,132 @@
 package com.oms.maas.rest;
 
+import com.google.gson.Gson;
+import com.oms.maas.Generator;
 import com.oms.maas.api.OfferApi;
+import io.swagger.models.Swagger;
+import io.swagger.models.parameters.QueryParameter;
 import org.apache.commons.io.IOUtils;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.ws.rs.core.Response;
-import java.util.List;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.*;
+import java.util.stream.Stream;
 
 @RestController
 public class OfferResource extends OfferApi {
 
     @Override
     public Response offerCheapGet() {
-        String companyName = "bmw";
-        String iotaStuff = getInformationFromBeyond("node iota/apiGetAccount.js --provider=" + companyName);
+        File file = new File(getProjectRootPath()+"/server/src/main/resources/api.yaml");
+        String content = readLineByLineJava8(file.getPath());
 
-        Response response = Response.ok().entity("{\n" +
-                "  \"id\":\"1234\",\n" +
-                "  \"productName\":\"DriveNow\",\n" +
-                "  \"description\":\"Meet at the mainstation\",\n" +
-                "  \"validFrom\": \"20180720\",\n" +
-                "  \"validFrom\": \"20180729\",\n" +
-                "  \"locationStart\":\"Munich\",\n" +
-                "  \"locationEnd\":\"Berlin\",\n" +
-                "  \"price\": \"100\",\n" +
-                "  \"currency\":\"eur\",\n" +
-                "  \"co2-emission\":\"5/10\",\n" +
-                "  \"options\":\"...\"\n" +
-                "}").build();
-        return response;
+        Swagger swagger = new io.swagger.parser.SwaggerParser().parse(content);
+
+        List<Map<String, String>> companyValues = new ArrayList<>();
+        swagger.getPaths().forEach((k, v) -> {
+            if(v.getPost() != null){
+                Map<String, String> defaulValueMap = new LinkedHashMap<>();
+                v.getPost().getParameters().stream().forEach(e -> {
+                    QueryParameter queryParameter = (QueryParameter) e;
+                    if( queryParameter.getDefaultValue() != null)
+                    defaulValueMap.put(queryParameter.getName(), queryParameter.getDefaultValue().toString());
+                });
+                companyValues.add(defaulValueMap);
+            }
+        });
+
+        Map<String, String> cheapestOfferMap = getCheapestProviderMap( companyValues);
+        String iotaStuff = getInformationFromBeyond("node iota/apiGetAccount.js --provider=" + cheapestOfferMap.get("provider").toLowerCase());
+        cheapestOfferMap.put("address", iotaStuff);
+
+        Gson gson = new Gson();
+        String json = gson.toJson(cheapestOfferMap);
+        return Response.ok().entity(json).build();
     }
+
+    private Map<String, String> getCheapestProviderMap(List<Map<String, String>> companyValues) {
+        Map<String, String> cheapestProviderMap = new LinkedHashMap<>();
+        companyValues.forEach(e -> {
+            if(cheapestProviderMap.isEmpty() ){
+                cheapestProviderMap.clear();
+                cheapestProviderMap.putAll(e);
+            }else{
+                if(cheapestProviderMap.containsKey("speed") && e.containsKey("speed")){
+                    try{
+                        int cheapest = Integer.getInteger(cheapestProviderMap.get("speed"));
+                        int newPrice = Integer.getInteger(e.get("speed"));
+                        if(cheapest > newPrice){
+                            cheapestProviderMap.clear();
+                            cheapestProviderMap.putAll(e);
+                        }
+                    }catch(Exception ex){
+                        //
+                    }
+                }
+            }
+        });
+
+        return cheapestProviderMap;
+    }
+
 
     @Override
     public Response offerFastGet() {
-        String iotaStuff = getInformationFromBeyond("js stuff"); //TODO ad js command
+        File file = new File(getProjectRootPath()+"/server/src/main/resources/api.yaml");
+        String content = readLineByLineJava8(file.getPath());
 
-        Response response = Response.ok().entity("{\n" +
-                "  \"id\":\"1234\",\n" +
-                "  \"productName\":\"DriveNow\",\n" +
-                "  \"description\":\"Meet at the mainstation\",\n" +
-                "  \"validFrom\": \"20180720\",\n" +
-                "  \"validFrom\": \"20180729\",\n" +
-                "  \"locationStart\":\"Munich\",\n" +
-                "  \"locationEnd\":\"Berlin\",\n" +
-                "  \"price\": \"100\",\n" +
-                "  \"currency\":\"eur\",\n" +
-                "  \"co2-emission\":\"5/10\",\n" +
-                "  \"options\":\"...\"\n" +
-                "}").build();
-        return response;
+        Swagger swagger = new io.swagger.parser.SwaggerParser().parse(content);
+
+        List<Map<String, String>> companyValues = new ArrayList<>();
+        swagger.getPaths().forEach((k, v) -> {
+            if(v.getPost() != null && k.startsWith("/company")){
+                Map<String, String> defaulValueMap = new LinkedHashMap<>();
+                v.getPost().getParameters().stream().forEach(e -> {
+                    QueryParameter queryParameter = (QueryParameter) e;
+                    if( queryParameter.getDefaultValue() != null)
+                        defaulValueMap.put(queryParameter.getName(), queryParameter.getDefaultValue().toString());
+                });
+                companyValues.add(defaulValueMap);
+            }
+        });
+        Map<String, String> fastestOfferMap = getFastestProviderMap( companyValues);
+        String iotaStuff = getInformationFromBeyond("node iota/apiGetAccount.js --provider=" + fastestOfferMap.get("provider").toLowerCase());
+        fastestOfferMap.put("address", iotaStuff);
+
+        Gson gson = new Gson();
+        String json = gson.toJson(fastestOfferMap);
+        return Response.ok().entity(json).build();
+    }
+
+    private Map<String, String> getFastestProviderMap(List<Map<String, String>> companyValues) {
+        Map<String, String> fastestProviderMap = new LinkedHashMap<>();
+        companyValues.forEach(e -> {
+            if(fastestProviderMap.isEmpty() ){
+                fastestProviderMap.clear();
+                fastestProviderMap.putAll(e);
+            }else{
+                if(fastestProviderMap.containsKey("speed") && e.containsKey("speed")){
+                    try{
+                        int fastest = Integer.getInteger(fastestProviderMap.get("speed"));
+                        int newPrice = Integer.getInteger(e.get("speed"));
+                        if(fastest < newPrice){
+                            fastestProviderMap.clear();
+                            fastestProviderMap.putAll(e);
+                        }
+                    }catch(Exception ex){
+                        //
+                    }
+                }
+            }
+        });
+
+        return fastestProviderMap;
     }
 
     @Override
@@ -96,9 +174,47 @@ public class OfferResource extends OfferApi {
 
     @Override
     public Response offerPostPost(String id, String productName, String provider, String description, String validFrom, String validTo, String locationStart, String locationEnd, String price, String currency, String co2emission, List<String> options) {
-        String iotaStuff = getInformationFromBeyond("js stuff"); //TODO ad js command
+        String iotaStuff = getInformationFromBeyond("node iota/apiPublish.js --payload='{\"id\": \"" + id +
+                "\", \"productName\": \"" + productName +
+                "\", \"provider\": \"" + provider +
+                "\", \"description\": \"" + description +
+                "\", \"validFrom\": \"" + validFrom +
+                "\", \"validTo\": \"" + validTo +
+                "\", \"locationStart\": \"" + locationStart +
+                "\", \"locationEnd\": \"" + locationEnd +
+                "\", \"price\": \"" + price +
+                "\", \"currency\": \"" + currency +
+                "\", \"co2emission\": \"" + co2emission +
+                "\", \"options\": \"" + options +
+                "\"}");
 
         Response response = Response.ok().entity(iotaStuff).build();
         return response;
+    }
+
+    public static String getProjectRootPath() {
+
+        URL resourceUrl = Generator.class.getResource("");
+        String resourceString = resourceUrl.getPath();
+        String currentProject = "";
+        if (resourceString.contains("/generator")) currentProject = "/generator";
+        else if (resourceString.contains("/server")) currentProject = "/server";
+        else if (resourceString.contains("/iota")) currentProject = "/iota";
+
+        return (resourceString.substring(resourceString.indexOf('/'), resourceString.indexOf(currentProject))).replace("%20", " ");
+    }
+
+    private static String readLineByLineJava8(String filePath)
+    {
+        StringBuilder contentBuilder = new StringBuilder();
+        try (Stream<String> stream = Files.lines( Paths.get(filePath), StandardCharsets.UTF_8))
+        {
+            stream.forEach(s -> contentBuilder.append(s).append("\n"));
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        return contentBuilder.toString();
     }
 }

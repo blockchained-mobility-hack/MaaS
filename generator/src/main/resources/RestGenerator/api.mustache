@@ -12,7 +12,10 @@ import io.swagger.annotations.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.oms.maas.rest.AbstractResource;
+
 import java.util.List;
+import java.util.LinkedHashMap;
 
 {{#useBeanValidation}}
 import javax.validation.constraints.*;
@@ -26,7 +29,7 @@ import javax.validation.constraints.*;
 {{>generatedAnnotation}}
 @Controller
 @RestController
-public class {{classname}}  {
+public class {{classname}} extends AbstractResource {
 
 {{#operations}}
 {{#operation}}
@@ -46,8 +49,13 @@ public class {{classname}}  {
     @ApiResponses(value = { {{#responses}}
         @ApiResponse(code = {{{code}}}, message = "{{{message}}}", response = {{{returnType}}}.class{{#returnContainer}}, responseContainer = "{{{returnContainer}}}"{{/returnContainer}}){{#hasMore}},{{/hasMore}}{{/responses}} })
     public Response {{nickname}}({{#allParams}}{{>queryParams}}{{>pathParams}}{{>headerParams}}{{>bodyParams}}{{>formParams}}{{#hasMore}},{{/hasMore}}{{/allParams}}) {
+        LinkedHashMap<String, Object> fields = new LinkedHashMap();
+        {{#allParams}}
+            fields.put("{{paramName}}", {{paramName}});
+        {{/allParams}}
+        fields.put("endpointName", "{{httpMethod}}@/{{{baseName}}}" + "{{{path}}}");
 
-        return null;
+        return proceedRequest(fields);
     }
 {{/operation}}
 }
