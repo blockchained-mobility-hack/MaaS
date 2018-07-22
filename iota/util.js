@@ -1,6 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const crypto = require('crypto')
+const { get, set } = require('lodash')
 
 const keyGen = length => {
     const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ9'
@@ -14,6 +15,7 @@ const keyGen = length => {
 
     return key
 }
+console.log(keyGen(81))
 
 exports.keyGen = keyGen
 
@@ -39,6 +41,23 @@ exports.getPublishKeyIndex = () => {
 
     const json = JSON.parse(content)
     return json.publishKeyIndex
+}
+
+exports.updateProviderKeyIndex = (keyIndex, provider) => {
+    const filepath = path.join(__dirname, 'state.json')
+    const content = fs.readFileSync(filepath, 'utf8')
+
+    const json = JSON.parse(content)
+    set(json, ['providerKeyIndexes', provider], keyIndex + 1)
+    fs.writeFileSync(filepath, JSON.stringify(json))
+    return true
+}
+
+exports.getProviderKeyIndex = provider => {
+    const content = fs.readFileSync(path.join(__dirname, 'state.json'), 'utf8')
+
+    const json = JSON.parse(content)
+    return get(json, ['providerKeyIndexes', provider], 0)
 }
 
 exports.updatePublishKeyIndex = keyIndex => {

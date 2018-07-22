@@ -1,14 +1,9 @@
-const _ = require('lodash')
-const IOTA = require('iota.lib.js')
+const iota = require('./initIota')
 const seeds = require('./seeds')
 const address = require('./address')
 const transfer = require('./transfer')
 const util = require('./util')
 const args = require('./args')
-
-const iota = new IOTA({
-    provider: 'https://nodes.devnet.iota.org:443',
-})
 
 const getNewAddress = async (seed, index) => await address.getNew(iota, seed, { index: index })
 
@@ -18,7 +13,7 @@ const { payload } = args.parse()
 try {
     JSON.parse(payload)
 } catch (e) {
-    console.log('Fail to parse payload, make sure it is valid JSON format')
+    console.log('[error]: Fail to parse payload, make sure it is valid JSON format')
     process.exit(1)
 }
 

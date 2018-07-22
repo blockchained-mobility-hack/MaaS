@@ -48,6 +48,11 @@ node iota/apiPublish.js --payload='{"name": "fei", "test":"again1", "provider": 
 `
 
 2. get payable provider address for end user to conduct transaction
-3. authorize and confirm payment
 
+`
+// possible providers are bmw, vw and db 
+node iota/apiGetAccount.js --provider=bmw
+`
+
+3. authorize and confirm payment
 

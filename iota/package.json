@@ -12,6 +12,7 @@
   "dependencies": {
     "iota.lib.js": "^0.4.7",
     "lodash": "^4.17.10",
+    "minimist": "^1.2.0",
     "socket.io": "^2.1.1",
     "zeromq": "^4.6.0"
   }
