@@ -26,7 +26,7 @@ We use the following technologies in pursuit of mobility happines:
  
 ## LIBRARY
 
- - SWAGGER
+ - SWAGGER (aka OpenAPI)
  - Spring Boot
  
 ## TOOLS
@@ -35,6 +35,12 @@ We use the following technologies in pursuit of mobility happines:
  - NEOVIM
 
 ## ARCHITECTURE
+The Java part of this project is heavily driven by maven. There is a lot of prepossessing going on. Just to point out some steps:
+1. we define our API from a business point of view, so practically we write our business login into an yaml file (api.yaml) and
+2. let swagger during the maven preprocessor (compile) transform the yaml into java (by using jaxrs as a framework) code
+3. how these Java files are actually created depends on swagger templates we overwrite in generator -> resources/RestGenerator, api.mustache is the place some magic happens
+4. to make it even more nasty, we generate by hand a json out of your self written api.yaml. We also write it into the static folder and make it available for our frontend documentation
+5. After all, our server get started in its specific sub-project, there you can also find some more REST* implementations
 
 ## DATAFLOW
 
