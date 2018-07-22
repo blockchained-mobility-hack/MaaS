@@ -25,6 +25,26 @@ We use the following technologies in pursuit of mobility happines:
  - Node JS
  - React
  - IOTA JS SDK
+
+## Demos
+
+1. App demo -> how a user can interact with our service, e.g. finding a offer
+   on IOTA from different mobile providers and conclude a contract via IOTA.
+
+![App demo](assets/app_demo.gif "App Demos")
+
+2. Get payable address of mobile provider
+
+![payable address](assets/get_payable_address_of_bmw.gif "Payable address")
+
+3. Publish mobility offer on IOTA
+
+![publish data](assets/publish_data_on_iota.gif "publish data on IOTA")
+
+4. Backend Java API for mobile provider to publish offers
+
+![backend_api](assets/swagger_be_api.png "Backend API in JAVA")
+
  
 ## LIBRARY
 
