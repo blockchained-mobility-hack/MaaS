@@ -43,7 +43,7 @@ public class OfferResource extends OfferApi {
 
         Map<String, String> cheapestOfferMap = getCheapestProviderMap( companyValues);
         String iotaStuff = getInformationFromBeyond("node iota/apiGetAccount.js --provider=" + cheapestOfferMap.get("provider").toLowerCase());
-        cheapestOfferMap.put("address", iotaStuff);
+        cheapestOfferMap.put("address", iotaStuff.replace("\n", ""));
 
         Gson gson = new Gson();
         String json = gson.toJson(cheapestOfferMap);
@@ -97,7 +97,7 @@ public class OfferResource extends OfferApi {
         });
         Map<String, String> fastestOfferMap = getFastestProviderMap( companyValues);
         String iotaStuff = getInformationFromBeyond("node iota/apiGetAccount.js --provider=" + fastestOfferMap.get("provider").toLowerCase());
-        fastestOfferMap.put("address", iotaStuff);
+        fastestOfferMap.put("address", iotaStuff.replace("\n", ""));
 
         Gson gson = new Gson();
         String json = gson.toJson(fastestOfferMap);
