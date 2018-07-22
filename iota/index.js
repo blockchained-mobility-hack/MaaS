@@ -62,19 +62,14 @@ const testTransfer = async (seed, transferObjects) => {
 
 const offerTransferObjects = [
     {
-        tag: 'FEIREFACTOR',
+        tag: 'PAYMENT',
         value: 10,
         message: iota.utils.toTrytes(
             JSON.stringify(
                 {
-                    price: 2,
-                    currency: 'euro',
-                    validFromDate: '2018-08-01',
-                    validToDate: '2018-09-01',
-                    startLocation: 'munich',
-                    endLocation: 'berlin',
-                    name: 'best offer from bwm',
-                    description: 'with i8',
+                    orderId: 2,
+                    provider: 'BMW',
+                    address: 'XXXXXXXXXXXX',
                 },
                 null,
                 4,
