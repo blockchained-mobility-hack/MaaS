@@ -1,6 +1,6 @@
 # Welcome to the repo of OMS-Mobility as a Service!
 
-
+https://de.wikipedia.org/wiki/IOTA_(Kryptowährung)#/media/File:Iota_logo.png
 
 ## THE TEAM
 
