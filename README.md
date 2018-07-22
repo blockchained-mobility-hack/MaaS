@@ -1,5 +1,7 @@
 # Welcome to the repo of OMS-Mobility as a Service!
 
+![IOTA](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Iota_logo.png/320px-Iota_logo.png)
+
 ## THE TEAM
 
 Our team consists of five passionated guy with different backgrounds.
@@ -43,6 +45,8 @@ The Java part of this project is heavily driven by maven. There is a lot of prep
 5. After all, our server get started in its specific sub-project, there you can also find some more REST* implementations
 
 ## DATAFLOW
+
+## Frontends
 
 ## IOTA
 
