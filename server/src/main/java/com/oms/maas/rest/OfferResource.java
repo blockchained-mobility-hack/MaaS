@@ -113,8 +113,8 @@ public class OfferResource extends OfferApi {
             }else{
                 if(fastestProviderMap.containsKey("speed") && e.containsKey("speed")){
                     try{
-                        int fastest = Integer.getInteger(fastestProviderMap.get("speed"));
-                        int newPrice = Integer.getInteger(e.get("speed"));
+                        int fastest = Integer.valueOf(fastestProviderMap.get("speed"));
+                        int newPrice = Integer.valueOf(e.get("speed"));
                         if(fastest < newPrice){
                             fastestProviderMap.clear();
                             fastestProviderMap.putAll(e);
@@ -128,7 +128,7 @@ public class OfferResource extends OfferApi {
 
         return fastestProviderMap;
     }
-
+/*
     @Override
     public Response offerIdGet(String id) {
         String iotaStuff = getInformationFromBeyond("js stuff"); //TODO ad js command
@@ -149,7 +149,7 @@ public class OfferResource extends OfferApi {
                 "}").build();
         return response;
     }
-
+*/
 
     private String getInformationFromBeyond(String function){
         Runtime runtime = Runtime.getRuntime();

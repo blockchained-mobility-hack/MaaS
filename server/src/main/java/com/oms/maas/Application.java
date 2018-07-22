@@ -10,7 +10,6 @@ public class Application {
 
 
     public Application() {
-        System.out.printf("breakpoint");
     }
 
     public static void main(String[] args) {

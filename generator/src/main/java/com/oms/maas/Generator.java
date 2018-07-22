@@ -1,6 +1,5 @@
 package com.oms.maas;
 
-import com.google.common.io.ByteStreams;
 import io.swagger.models.Swagger;
 import io.swagger.util.Json;
 

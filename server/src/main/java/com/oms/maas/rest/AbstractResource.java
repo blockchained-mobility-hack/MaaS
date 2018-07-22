@@ -12,10 +12,7 @@ public abstract class AbstractResource {
     public Response proceedRequest(LinkedHashMap map){
         Gson gson = new Gson();
         String json = gson.toJson(map);
-/*
-HashMap<String,Object> result =
-        new ObjectMapper().readValue(JSON_SOURCE, HashMap.class);
- */
+
         return Response.ok().entity(json).build();
     }
 }

@@ -123,6 +123,9 @@ paths:
           type: array
           items:
             type: string
+
+
+
   /company/bmw:
     post:
       summary: Test case
