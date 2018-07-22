@@ -15,7 +15,6 @@ const keyGen = length => {
 
     return key
 }
-console.log(keyGen(81))
 
 exports.keyGen = keyGen
 
