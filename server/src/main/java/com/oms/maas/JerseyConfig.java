@@ -22,5 +22,7 @@ public class JerseyConfig extends ResourceConfig {
     private void registerEndpoints() {
         register(OfferResource.class);
         register(CompanyApi.class);
+
+        register(CorsFilter.class);
     }
 }
