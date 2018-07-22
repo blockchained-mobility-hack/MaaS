@@ -12,7 +12,8 @@ public class OfferResource extends OfferApi {
 
     @Override
     public Response offerCheapGet() {
-        String iotaStuff = getInformationFromBeyond("js stuff"); //TODO ad js command
+        String companyName = "bmw";
+        String iotaStuff = getInformationFromBeyond("node iota/apiGetAccount.js --provider=" + companyName);
 
         Response response = Response.ok().entity("{\n" +
                 "  \"id\":\"1234\",\n" +
