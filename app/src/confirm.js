@@ -59,5 +59,4 @@ export default (orderData, onConfirm, onError, handleUpdate) => {
         )
     })
     // start zmp here
-    //
 }
