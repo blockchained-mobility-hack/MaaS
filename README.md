@@ -48,6 +48,8 @@ The Java part of this project is heavily driven by maven. There is a lot of prep
 
 ## Frontends
 
+![Screen](https://github.com/blockchained-mobility-hack/MaaS/blob/htdocs/screen_website.PNG)
+
 ## IOTA
 
 IOTA part provides 3 APIs
