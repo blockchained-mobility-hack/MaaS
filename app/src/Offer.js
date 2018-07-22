@@ -26,12 +26,15 @@ const descriptionMap = {
         'In our five DriveNow German cities, you will be able to drive over 3,000 brand-new models from BMW and MINI. All of our cars are available for you around the clock, and ready to take you quickly and inexpensively from A to B. Register for DriveNow and start driving in your city..',
     db:
         'Profitieren Sie außerhalb der Hauptreisezeiten von Sparpreis-Kontingenten ab 19,90 Euro und reisen günstig im ICE, IC/EC durch ganz Deutschland. Solange der Vorrat reicht.',
+    vw:
+        'MOIA is the newest company in the Volkswagen Group. Officially launched in December 2016, MOIA was set up for the purpose of redefining mobility for people living in urban areas. This independent company based in Berlin, Hamburg and Helsinki does not see itself as an automaker or a pure-play car-sharing provider...',
 }
 
 const imageSrcMap = {
     bmw: 'https://upload.wikimedia.org/wikipedia/commons/b/b9/DriveNow_logo.svg',
     db:
         'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Deutsche_Bahn_AG-Logo.svg/744px-Deutsche_Bahn_AG-Logo.svg.png',
+    vw: 'https://www.volkswagenag.com/presence/markenundmodelle/images/teaser/moia/MOIA_Teaser.jpg',
 }
 
 class SimpleMediaCard extends React.Component {
@@ -105,11 +108,13 @@ class SimpleMediaCard extends React.Component {
                         size="large"
                         color="primary"
                         variant="contained"
-                        onClick={() =>
+                        onClick={() => {
+                            this.setState({ orderStatus: 'Attaching...' })
                             setTimeout(
                                 confirm(this.state.data, this.handleConfirmed, this.handleError, this.handleUpdate),
+                                100,
                             )
-                        }
+                        }}
                     >
                         {this.state.orderStatus || 'Confirm'}
                     </Button>
