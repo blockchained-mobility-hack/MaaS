@@ -18,9 +18,10 @@ company and customer UI. Such way we hope more customer and mobility provider ho
 ## TECHNOLOGY
 We use the following technologies in pursuit of mobility happines:
 
- - Apache        
+ - Apache
  - Java
  - Node JS
+ - React
  - IOTA JS SDK
  
 ## LIBRARY
