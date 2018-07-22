@@ -1,1 +1,8 @@
 node_modules
+.idea/
+MaaS.iml
+generator/generator.iml
+generator/target/
+server/server.iml
+server/src/main/resources/static/swagger.json
+server/target/
