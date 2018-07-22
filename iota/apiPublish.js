@@ -11,7 +11,7 @@ const { payload } = args.parse()
 
 // make sure payload is json
 try {
-    JSON.parse(payload)
+    JSON.parse(payload.replace(/\'/g, ''))
 } catch (e) {
     console.log('[error]: Fail to parse payload, make sure it is valid JSON format')
     process.exit(1)
