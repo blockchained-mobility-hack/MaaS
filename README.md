@@ -44,9 +44,10 @@ The Java part of this project is heavily driven by maven. There is a lot of prep
 4. to make it even more nasty, we generate by hand a json out of your self written api.yaml. We also write it into the static folder and make it available for our frontend documentation
 5. After all, our server get started in its specific sub-project, there you can also find some more REST* implementations
 
-## DATAFLOW
+![SCREEN](https://github.com/blockchained-mobility-hack/MaaS/blob/htdocs/OMS_architecture.png)
 
-## Frontends
+
+## FRONTENDS
 
 ![Screen](https://github.com/blockchained-mobility-hack/MaaS/blob/htdocs/screen_website.PNG)
 
