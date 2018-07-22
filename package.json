@@ -1,5 +1,26 @@
 {
-  "dependencies": {
-    "minimist": "^1.2.0"
-  }
+    "name": "MaaS",
+    "private": true,
+    "workspaces": ["app", "iota"],
+    "version": "1.0.0",
+    "description": "Our team consists of five passionated guy with different backgrounds.",
+    "main": "index.js",
+    "dependencies": {
+        "minimist": "^1.2.0"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/blockchained-mobility-hack/MaaS.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/blockchained-mobility-hack/MaaS/issues"
+    },
+    "homepage": "https://github.com/blockchained-mobility-hack/MaaS#readme"
 }
