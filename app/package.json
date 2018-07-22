@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^1.4.0",
     "@material-ui/icons": "^1.1.0",
+    "isomorphic-fetch": "^2.2.1",
     "material-ui-pickers": "^1.0.0-rc.11",
     "moment": "^2.22.2",
     "react": "^16.4.1",

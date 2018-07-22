@@ -83,13 +83,13 @@ class App extends Component {
                             />
                         </ControlSection>
                         <ButtonGroup>
-                            <Link to="/offer/cheapest">
+                            <Link to="/offer/cheap">
                                 <Button style={{ width: '100%' }} size="large" color="primary" variant="contained">
                                     Cheapest
                                 </Button>
                             </Link>
                             <p>Or</p>
-                            <Link to="/offer/fastest">
+                            <Link to="/offer/fast">
                                 <Button style={{ width: '100%' }} size="large" color="primary" variant="contained">
                                     Fastest
                                 </Button>

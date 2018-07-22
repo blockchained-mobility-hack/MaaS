@@ -7,6 +7,8 @@ import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
+import CircularProgress from '@material-ui/core/CircularProgress'
+import fetch from 'isomorphic-fetch'
 
 const styles = {
     card: {
@@ -29,84 +31,71 @@ const imageSrcMap = {
     bmw: 'https://upload.wikimedia.org/wikipedia/commons/b/b9/DriveNow_logo.svg',
 }
 
-const fakeData = {
-    cheapest: {
-        id: '1234',
-        productName: 'DriveNow',
-        provider: 'BMW',
-        description: 'some Text',
-        validFrom: '20180720',
-        validTo: '20180725',
-        locationStart: 'Munich',
-        locationEnd: 'Berlin',
-        price: '100',
-        currency: 'eur',
-        co2emission: '510',
-        speed: '100',
-        address: 'XXXXXXXXXXXXXX',
-    },
-    fastest: {
-        id: '1234',
-        productName: 'Sparpreis',
-        provider: 'DB',
-        description: 'some Text',
-        validFrom: '20180720',
-        validTo: '20180725',
-        locationStart: 'Munich',
-        locationEnd: 'Berlin',
-        price: '100',
-        currency: 'eur',
-        co2emission: '510',
-        speed: '100',
-        address: 'XXXXXXXXXXXXXX',
-    },
-}
+class SimpleMediaCard extends React.Component {
+    state = {
+        loading: false,
+        data: {},
+    }
+    componentWillMount = async () => {
+        const { match: { params } } = this.props
+        const data = await fetch(`http://localhost:8080/offer/${params.type}`)
+        this.setState({ data: data, loading: false })
+    }
+    render() {
+        const { classes, match: { params } } = this.props
 
-function SimpleMediaCard(props) {
-    const { classes, match: { params } } = props
-    const data = fakeData[params.type]
-
-    return (
-        <div
-            style={{
-                display: 'flex',
-                alignItems: 'center',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                paddingTop: 20,
-            }}
-        >
-            <Card className={classes.card}>
-                <CardMedia
-                    style={{ backgroundSize: 'contain' }}
-                    className={classes.media}
-                    image={imageSrcMap[data.provider.toLowerCase()]}
-                    title="Contemplative Reptile"
-                />
-                <CardContent>
-                    <Typography gutterBottom variant="headline" component="h2">
-                        {data.productName}
-                    </Typography>
-                    <Typography component="p">{descriptionMap[data.provider.toLowerCase()]}</Typography>
-                </CardContent>
-                <CardActions>
-                    <Button size="small" color="primary">
-                        {`Price: ${data.price} €`}
-                    </Button>
-                    <Button size="small" color="primary">
-                        {`CO2 Emission: ${data.co2emission}`}
-                    </Button>
-                </CardActions>
-            </Card>
+        return this.state.loading ? (
             <div
-                style={{ paddingLeft: 20, paddingRight: 20, width: '100%', display: 'flex', justifyContent: 'center' }}
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    paddingTop: 20,
+                }}
             >
-                <Button style={{ width: '90%', marginTop: 50 }} size="large" color="primary" variant="contained">
-                    Confirm
-                </Button>
+                <Card className={classes.card}>
+                    <CardMedia
+                        style={{ backgroundSize: 'contain' }}
+                        className={classes.media}
+                        image={imageSrcMap[this.state.data.provider.toLowerCase()]}
+                        title="Contemplative Reptile"
+                    />
+                    <CardContent>
+                        <Typography gutterBottom variant="headline" component="h2">
+                            {this.state.data.productName}
+                        </Typography>
+                        <Typography component="p">{descriptionMap[this.state.data.provider.toLowerCase()]}</Typography>
+                    </CardContent>
+                    <CardActions>
+                        <Button size="small" color="primary">
+                            {`Price: ${this.state.data.price} €`}
+                        </Button>
+                        <Button size="small" color="primary">
+                            {`CO2 Emission: ${this.state.data.co2emission}`}
+                        </Button>
+                    </CardActions>
+                </Card>
+                <div
+                    style={{
+                        paddingLeft: 20,
+                        paddingRight: 20,
+                        width: '100%',
+                        display: 'flex',
+                        justifyContent: 'center',
+                    }}
+                >
+                    <Button style={{ width: '90%', marginTop: 50 }} size="large" color="primary" variant="contained">
+                        Confirm
+                    </Button>
+                </div>
             </div>
-        </div>
-    )
+        ) : (
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: 200 }}>
+                <CircularProgress size={50} />
+            </div>
+        )
+    }
 }
 
 SimpleMediaCard.propTypes = {
