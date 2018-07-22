@@ -9,67 +9,54 @@
       parameters:
         - name: id
           in: query
-          description:
           type: string
           default: 1234
         - name: productName
           in: query
-          description:
           type: string
           default: Moia
         - name: provider
           in: query
-          description:
           type: string
           default: VW
         - name: description
           in: query
-          description:
           type: string
-          default: some Text
+          default: hello
         - name: validFrom
           in: query
-          description:
           type: string
           default: 20180720
         - name: validTo
           in: query
-          description:
           type: string
           default: 20180725
         - name: locationStart
           in: query
-          description:
           type: string
           default: Munich
         - name: locationEnd
           in: query
-          description:
           type: string
           default: Berlin
         - name: price
           in: query
-          description:
           type: string
           default: 70
         - name: currency
           in: query
-          description:
           type: string
           default: eur
         - name: co2emission
           in: query
-          description:
           type: string
-          default: '2-10'
+          efault: 2
         - name: speed
           in: query
-          description:
           type: string
           default: 100
         - name: options
           in: query
-          description:
           type: array
           items:
             type: string

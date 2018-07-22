@@ -18,12 +18,16 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Stream;
 
+/**
+ * just override the automatically generaten endpoints and directly use them!
+ * how awesome is that?
+ */
 @RestController
 public class OfferResource extends OfferApi {
 
     @Override
     public Response offerCheapGet() {
-        File file = new File(getProjectRootPath()+"/server/src/main/resources/api.yaml");
+        File file = new File(getProjectRootPath()+"/server/src/main/resources/api.yaml"); //this code makes me very sad...
         String content = readLineByLineJava8(file.getPath());
 
         Swagger swagger = new io.swagger.parser.SwaggerParser().parse(content);
@@ -42,8 +46,8 @@ public class OfferResource extends OfferApi {
         });
 
         Map<String, String> cheapestOfferMap = getCheapestProviderMap( companyValues);
-        String iotaStuff = getInformationFromBeyond("node iota/apiGetAccount.js --provider=" + cheapestOfferMap.get("provider").toLowerCase());
-        cheapestOfferMap.put("address", iotaStuff.replace("\n", ""));
+        String iotaStuff = getInformationFromBeyond("node iota/apiGetAccount.js --provider=" + cheapestOfferMap.get("provider").toLowerCase()); //TODO exception
+        cheapestOfferMap.put("address", iotaStuff.replace("\n", "")); //TODO @replace: dont be stupid in the first place
 
         Gson gson = new Gson();
         String json = gson.toJson(cheapestOfferMap);
@@ -128,35 +132,12 @@ public class OfferResource extends OfferApi {
 
         return fastestProviderMap;
     }
-/*
-    @Override
-    public Response offerIdGet(String id) {
-        String iotaStuff = getInformationFromBeyond("js stuff"); //TODO ad js command
-
-        Response response = Response.ok().entity("{\n" +
-                "  \"id\":\"1234\",\n" +
-                "  \"productName\":\"DriveNow\",\n" +
-                "  \"description\":\"Meet at the mainstation\",\n" +
-                "  \"validFrom\": \"20180720\",\n" +
-                "  \"validFrom\": \"20180729\",\n" +
-                "  \"locationStart\":\"Munich\",\n" +
-                "  \"locationEnd\":\"Berlin\",\n" +
-                "  \"price\": \"100\",\n" +
-                "  \"currency\":\"eur\",\n" +
-                "  \"co2-emission\":\"5/10\",\n" +
-                "  \"options\":\"...\",\n" +
-                "  \"address\":\"" + iotaStuff + "\"\n" +
-                "}").build();
-        return response;
-    }
-*/
 
     private String getInformationFromBeyond(String function){
         Runtime runtime = Runtime.getRuntime();
 
         String s = "";
         try {
-            //function = function.replace("\"", "\\\"").replace("\'", "\\'");
             Process process = runtime.exec(function);
             int resultCode = process.waitFor();
 

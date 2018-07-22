@@ -9,6 +9,11 @@ import java.util.LinkedHashMap;
 @RestController
 public abstract class AbstractResource {
 
+    /**
+     *
+     * @param map map with endpoint parameters + values
+     * @return just give it back as json
+     */
     public Response proceedRequest(LinkedHashMap map){
         Gson gson = new Gson();
         String json = gson.toJson(map);
