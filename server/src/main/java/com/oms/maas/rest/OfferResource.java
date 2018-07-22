@@ -30,7 +30,7 @@ public class OfferResource extends OfferApi {
 
         List<Map<String, String>> companyValues = new ArrayList<>();
         swagger.getPaths().forEach((k, v) -> {
-            if(v.getPost() != null){
+            if(v.getPost() != null && k.startsWith("/company")){
                 Map<String, String> defaulValueMap = new LinkedHashMap<>();
                 v.getPost().getParameters().stream().forEach(e -> {
                     QueryParameter queryParameter = (QueryParameter) e;
@@ -57,10 +57,10 @@ public class OfferResource extends OfferApi {
                 cheapestProviderMap.clear();
                 cheapestProviderMap.putAll(e);
             }else{
-                if(cheapestProviderMap.containsKey("speed") && e.containsKey("speed")){
+                if(cheapestProviderMap.containsKey("price") && e.containsKey("price")){
                     try{
-                        int cheapest = Integer.getInteger(cheapestProviderMap.get("speed"));
-                        int newPrice = Integer.getInteger(e.get("speed"));
+                        int cheapest = Integer.valueOf(cheapestProviderMap.get("price"));
+                        int newPrice = Integer.valueOf(e.get("price"));
                         if(cheapest > newPrice){
                             cheapestProviderMap.clear();
                             cheapestProviderMap.putAll(e);
