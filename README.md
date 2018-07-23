@@ -1,4 +1,4 @@
-# Welcome to the repo of OMS-Mobility as a Service!
+# Welcome to the repo of OMS-Mobility as a Service! --> www.omobi.io (StayConnected!)
 
 ![IOTA](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Iota_logo.png/320px-Iota_logo.png)
 
@@ -7,7 +7,7 @@
 Our team consists of five passionated guy with different backgrounds.
 
  - Christian: originator and backend guru with SWAGGER
- - Stefan:    bridgebuilder between business & IT, with a taste of FronEnd note and a pinch of IOTA
+ - Stefan:    bridgebuilder between business & development, with mobility business and FrontEnd, Backend, IOTA & Ethereum experience
  - Benedikt:  Stark-ish mechatronic-guy with a soft-spot for JAVA
  - Fei:       Multi-Ninja on the FrontEnd- and IOTA-side
  - Alex:      business practioneer with a passion of innovative technologies and a passion for Python 
