@@ -1,17 +1,16 @@
-# Welcome to the repo of OMS-Mobility as a Service!
+# Welcome to the repo of OMS - Mobility as a Service (MaaS)!
 
 ![IOTA](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Iota_logo.png/320px-Iota_logo.png)
 
 ## THE TEAM
 
-Our team consists of five passionated guy with different backgrounds.
+Our team consists of five passionated guys with different backgrounds.
 
- - Christian: originator and backend guru with SWAGGER
- - Stefan:    bridgebuilder between business & development, with mobility business and FrontEnd, Backend, IOTA & Ethereum experience
- - Benedikt:  Stark-ish mechatronic-guy with a soft-spot for JAVA
- - Fei:       Multi-Ninja on the FrontEnd- and IOTA-side
- - Alex:      business practioneer with a passion of innovative technologies and a passion for Python 
- 
+**[Christian](https://github.com/M3shup)** - originator and backend guru with SWAGGER
+**[Stefan](https://github.com/M3shup)** - bridgebuilder between business & development, with mobility business and FrontEnd, Backend, IOTA & Ethereum experience
+**[Benedikt](https://github.com/M3shup)** - Stark-ish mechatronic-guy with a soft-spot for JAVA
+**[Fei](https://github.com/M3shup)** - Multi-Ninja on the FrontEnd- and IOTA-side
+**[Alexander](https://github.com/M3shup)** - business practioneer with a passion of innovative technologies and a passion for Python 
  
 ## IDEA
 We want to enable companies to enter the mobility market. Our idea is to develop a clear & crisp REST API to ease implementation on 
