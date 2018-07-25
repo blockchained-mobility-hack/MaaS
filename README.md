@@ -7,9 +7,13 @@
 Our team consists of five passionated guys with different backgrounds.
 
 **[Christian](https://github.com/prunkton)** - originator and backend guru with SWAGGER
+
 **[Stefan](https://github.com/stefankreissl)** - bridgebuilder between business & development, with mobility business and FrontEnd, Backend, IOTA & Ethereum experience
+
 **[Benedikt](https://github.com/)** - Stark-ish mechatronic-guy with a soft-spot for JAVA
+
 **[Fei](https://github.com/geastwood)** - Multi-Ninja on the FrontEnd- and IOTA-side
+
 **[Alexander](https://github.com/fraggler)** - business practioneer with a passion of innovative technologies and a passion for Python
 
 ## IDEA
