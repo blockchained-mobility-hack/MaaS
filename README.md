@@ -11,6 +11,7 @@ Our team consists of five passionated guys with different backgrounds.
 Interims mobile contact until further notice: +49 172 - 626 62 79
 
 **[Benedikt](https://github.com/)** - Stark-ish mechatronic-guy with a soft-spot for JAVA
+(www.linkedin.com/in/benedikt-jaeger)   
 
 **[Christian](https://github.com/prunkton)** - originator and backend guru with SWAGGER   
 (https://www.xing.com/profile/Christian_Meggle)
