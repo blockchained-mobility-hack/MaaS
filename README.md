@@ -14,7 +14,7 @@ Interims mobile contact until further notice: +49 172 - 626 62 79
 (www.linkedin.com/in/benedikt-jaeger)   
 
 **[Christian](https://github.com/prunkton)** - Originator and backend guru with SWAGGER   
-(https://www.xing.com/profile/Christian_Meggle)
+(www.linkedin.com/in/christian-meggle)   
 
 **[Fei](https://github.com/geastwood)** - Multi-Ninja on the FrontEnd- and IOTA-side   
 (https://www.linkedin.com/in/fei-liu-380aa7168/)
