@@ -1,4 +1,4 @@
-# WELCOME to the repo of OMS - Mobility as a Service (MaaS) !
+# WELCOME to the repo of OMS - Mobility as a Service (MaaS)!
 
 ![IOTA](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Iota_logo.png/320px-Iota_logo.png)
 
