@@ -6,12 +6,12 @@
 
 Our team consists of five passionated guys with different backgrounds.
 
-**[Christian](https://github.com/M3shup)** - originator and backend guru with SWAGGER
-**[Stefan](https://github.com/M3shup)** - bridgebuilder between business & development, with mobility business and FrontEnd, Backend, IOTA & Ethereum experience
-**[Benedikt](https://github.com/M3shup)** - Stark-ish mechatronic-guy with a soft-spot for JAVA
-**[Fei](https://github.com/M3shup)** - Multi-Ninja on the FrontEnd- and IOTA-side
-**[Alexander](https://github.com/M3shup)** - business practioneer with a passion of innovative technologies and a passion for Python 
- 
+**[Christian](https://github.com/prunkton)** - originator and backend guru with SWAGGER
+**[Stefan](https://github.com/stefankreissl)** - bridgebuilder between business & development, with mobility business and FrontEnd, Backend, IOTA & Ethereum experience
+**[Benedikt](https://github.com/)** - Stark-ish mechatronic-guy with a soft-spot for JAVA
+**[Fei](https://github.com/geastwood)** - Multi-Ninja on the FrontEnd- and IOTA-side
+**[Alexander](https://github.com/fraggler)** - business practioneer with a passion of innovative technologies and a passion for Python
+
 ## IDEA
 We want to enable companies to enter the mobility market. Our idea is to develop a clear & crisp REST API to ease implementation on 
 company and customer UI. Such way we hope more customer and mobility provider hook up in a distributed mobility ledger.
