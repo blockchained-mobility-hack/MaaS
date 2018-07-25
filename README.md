@@ -1,4 +1,4 @@
-# WELCOME to the repo of OMS - Mobility as a Service (MaaS) for Distributed Ledger!
+# WELCOME to the repo of OMS - Mobility as a Service (MaaS) !
 
 ![IOTA](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Iota_logo.png/320px-Iota_logo.png)
 
@@ -8,6 +8,7 @@ Our team consists of five passionated guys with different backgrounds.
 
 **[Alexander](https://github.com/fraggler)** - business practioneer with a passion of innovative technologies and Python   
 (www.linkedin.com/in/alexandermurgoci)
+Interims mobile contact until further notice: +49 172 - 626 62 79
 
 **[Benedikt](https://github.com/)** - Stark-ish mechatronic-guy with a soft-spot for JAVA
 
@@ -15,7 +16,7 @@ Our team consists of five passionated guys with different backgrounds.
 (https://www.xing.com/profile/Christian_Meggle)
 
 **[Fei](https://github.com/geastwood)** - Multi-Ninja on the FrontEnd- and IOTA-side   
-(https://www.xing.com/profile/Fei_Liu46)
+(https://www.linkedin.com/in/fei-liu-380aa7168/)
 
 **[Stefan](https://github.com/stefankreissl)** - bridgebuilder between business & development, with mobility business and FrontEnd, Backend, IOTA & Ethereum experience (https://de.linkedin.com/in/stefankreissl)
 
