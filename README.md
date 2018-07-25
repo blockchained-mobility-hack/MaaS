@@ -6,20 +6,20 @@
 
 Our team consists of five passionated guys with different backgrounds.
 
-**[Alexander](https://github.com/fraggler)** - business practioneer with a passion of innovative technologies and Python   
+**[Alexander](https://github.com/fraggler)** - Business practioneer with a passion for innovative technologies and Python   
 (www.linkedin.com/in/alexandermurgoci)    
 Interims mobile contact until further notice: +49 172 - 626 62 79
 
 **[Benedikt](https://github.com/)** - Stark-ish mechatronic-guy with a soft-spot for JAVA
 (www.linkedin.com/in/benedikt-jaeger)   
 
-**[Christian](https://github.com/prunkton)** - originator and backend guru with SWAGGER   
+**[Christian](https://github.com/prunkton)** - Originator and backend guru with SWAGGER   
 (https://www.xing.com/profile/Christian_Meggle)
 
 **[Fei](https://github.com/geastwood)** - Multi-Ninja on the FrontEnd- and IOTA-side   
 (https://www.linkedin.com/in/fei-liu-380aa7168/)
 
-**[Stefan](https://github.com/stefankreissl)** - bridgebuilder between business & development, with mobility business and FrontEnd, Backend, IOTA & Ethereum experience (https://de.linkedin.com/in/stefankreissl)
+**[Stefan](https://github.com/stefankreissl)** - Bridgebuilder between business & development, with mobility business and FrontEnd, Backend, IOTA & Ethereum experience (https://de.linkedin.com/in/stefankreissl)
 
 
 ## IDEA
