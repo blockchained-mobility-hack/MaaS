@@ -1,4 +1,4 @@
-# Welcome to the repo of OMS - Mobility as a Service (MaaS)!
+# WELCOME to the repo of OMS - Mobility as a Service (MaaS) for Distributed Ledger!
 
 ![IOTA](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Iota_logo.png/320px-Iota_logo.png)
 
@@ -29,7 +29,7 @@ We use the following technologies in pursuit of mobility happines:
  - React
  - IOTA JS SDK
 
-## Demos
+## DEMOS
 
 1. App demo -> how a user can interact with our service, e.g. finding a offer
    on IOTA from different mobile providers and conclude a contract via IOTA.
@@ -60,6 +60,7 @@ We use the following technologies in pursuit of mobility happines:
  - NEOVIM
 
 ## ARCHITECTURE
+
 The Java part of this project is heavily driven by maven. There is a lot of prepossessing going on. Just to point out some steps:
 1. we define our API from a business point of view, so practically we write our business login into an yaml file (api.yaml) and
 2. let swagger during the maven preprocessor (compile) transform the yaml into java (by using jaxrs as a framework) code
@@ -92,4 +93,3 @@ node iota/apiGetAccount.js --provider=bmw // possible providers are bmw, vw and 
 `
 
 3. authorize and confirm payment
-
