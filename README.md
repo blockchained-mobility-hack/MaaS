@@ -17,8 +17,7 @@ Our team consists of five passionated guys with different backgrounds.
 **[Fei](https://github.com/geastwood)** - Multi-Ninja on the FrontEnd- and IOTA-side   
 (https://www.xing.com/profile/Fei_Liu46)
 
-**[Stefan](https://github.com/stefankreissl)** - bridgebuilder between business & development, with mobility business and FrontEnd, Backend, IOTA & Ethereum experience   
-(https://de.linkedin.com/in/stefankreissl)
+**[Stefan](https://github.com/stefankreissl)** - bridgebuilder between business & development, with mobility business and FrontEnd, Backend, IOTA & Ethereum experience (https://de.linkedin.com/in/stefankreissl)
 
 
 ## IDEA
