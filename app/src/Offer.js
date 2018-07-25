@@ -54,13 +54,18 @@ class SimpleMediaCard extends React.Component {
         this.setState({ logs: this.state.logs.concat(msg) })
     }
     componentWillMount = async () => {
-        const { match: { params } } = this.props
+        const {
+            match: { params },
+        } = this.props
         const data = await fetch(`http://localhost:8080/api/offer/${params.type}`).then(data => data.json())
 
         this.setState({ data: data, loading: true })
     }
     render() {
-        const { classes, match: { params } } = this.props
+        const {
+            classes,
+            match: { params },
+        } = this.props
 
         return this.state.loading ? (
             <div
@@ -116,7 +121,7 @@ class SimpleMediaCard extends React.Component {
                             )
                         }}
                     >
-                        {this.state.orderStatus || 'Confirm'}
+                        {this.state.orderStatus || 'Confirm Payment'}
                     </Button>
                 </div>
                 <ul
