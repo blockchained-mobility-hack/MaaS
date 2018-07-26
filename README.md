@@ -10,10 +10,10 @@ Our team consists of five passionated guys with different backgrounds.
 (www.linkedin.com/in/alexandermurgoci)    
 According to competition rules, interims mobile contact until further notice: +49 172 - 626 62 79
 
-**[Benedikt](https://github.com/)** - Stark-ish mechatronic-guy with a soft-spot for JAVA
+**[Benedikt](https://github.com/)** - Stark-ish mechatronic-guy with a soft-spot for Java
 (www.linkedin.com/in/benedikt-jaeger)   
 
-**[Christian](https://github.com/prunkton)** - Originator and backend guru with SWAGGER   
+**[Christian](https://github.com/prunkton)** - Originator and backend/middleware guru with Java   
 (www.linkedin.com/in/christian-meggle)   
 
 **[Fei](https://github.com/geastwood)** - Multi-Ninja on the FrontEnd- and IOTA-side   
