@@ -19,7 +19,7 @@ According to competition rules, interims mobile contact until further notice: +4
 **[Fei](https://github.com/geastwood)** - Multi-Ninja on the FrontEnd- and IOTA-side   
 (https://www.linkedin.com/in/fei-liu-380aa7168/)
 
-**[Stefan](https://github.com/stefankreissl)** - Bridgebuilder between business & development, with mobility business and FrontEnd, Backend, IOTA & Ethereum experience (https://de.linkedin.com/in/stefankreissl)
+**[Stefan](https://github.com/stefankreissl)** - Bridgebuilder between business & development, with mobility business and FrontEnd, Backend, IOTA & Ethereum development experience (https://de.linkedin.com/in/stefankreissl)
 
 
 ## IDEA
