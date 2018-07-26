@@ -34,6 +34,9 @@ We want to enable companies to enter the mobility market. Our idea is to develop
 
 ## ARCHITECTURE
 
+
+![SCREEN](https://github.com/blockchained-mobility-hack/MaaS/blob/master/OMS_architecture.png)
+
 The Java part of this project is heavily driven by maven. There is a lot of prepossessing going on. Just to point out some steps:
 1. we define our API from a business point of view, so practically we write our business login into an yaml file (api.yaml) and
 2. let swagger during the maven preprocessor (compile) transform the yaml into Java (by using jaxrs as a framework) code.
