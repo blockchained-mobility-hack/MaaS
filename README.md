@@ -13,7 +13,7 @@ According to competition rules, interims mobile contact until further notice: +4
 **[Benedikt](https://github.com/)** - Stark-ish mechatronic-guy with a soft-spot for Java
 (www.linkedin.com/in/benedikt-jaeger)   
 
-**[Christian](https://github.com/prunkton)** - Originator and backend/middleware guru with Java   
+**[Christian](https://github.com/prunkton)** - Originator and Backend/Middleware guru with Java   
 (www.linkedin.com/in/christian-meggle)   
 
 **[Fei](https://github.com/geastwood)** - Multi-Ninja on the FrontEnd- and IOTA-side   
@@ -92,7 +92,7 @@ node iota/apiGetAccount.js --provider=bmw // possible providers are bmw, vw and 
 
 4. Backend Java API for mobile provider to publish offers
 
-![backend_api](assets/swagger_be_api.png "Backend API in JAVA")
+![backend_api](assets/swagger_be_api.png "Backend API in Java")
 
 
 ## FRONTENDS
