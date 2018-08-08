@@ -8,7 +8,6 @@ Our team consists of five passionated guys with different backgrounds.
 
 **[Alexander Murgoci](https://github.com/fraggler)** - Business practioneer with a passion for innovative technologies and Python   
 (www.linkedin.com/in/alexandermurgoci)    
-According to competition rules, interims mobile contact until further notice: +49 172 - 626 62 79
 
 **[Benedikt Jäger](https://github.com/)** - Stark-ish mechatronic-guy with a soft-spot for Java
 (www.linkedin.com/in/benedikt-jaeger)   
